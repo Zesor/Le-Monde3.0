@@ -36,6 +36,7 @@ app.post('/ipfs/add', async (req, res) => {
     data: {
       wallet_id: req.body.wallet_id,
       cid: str,
+      title: req.body.title,
     }
   })
   .then(response => {
@@ -61,9 +62,9 @@ app.get('/ipfs/get', async (req, res) => {
   console.log(data);
   for (let content in data) {
     const byteArray = uint8ArrayConcat(await all(ipfs.cat(data[content][1])));
-    data[content][2] = uint8ArrayToString(byteArray);
+    data[content][3] = uint8ArrayToString(byteArray);
   }
-  console.log(data);
+  res.status(200).send(data);
 });
 
 app.listen(process.env.PORT, () =>
