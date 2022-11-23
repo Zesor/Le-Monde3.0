@@ -40,10 +40,10 @@
 - **/newPost**
     - ***Description***: Create a new Post
     - ***Method***: POST
-    - ***Require***: wallet_id, cid *(body)*
+    - ***Require***: wallet_id, cid, title *(body)*
     - ***Responses***:
         - *201* Post created
-        - *400* Bad info given, (need wallet id / need cid)
+        - *400* Bad info given, (need wallet id / need cid / need title)
         - *400* Post already exist on this user accound
         - *404* User does not exist
         - *503* Can't connect to database
@@ -51,10 +51,10 @@
 - **/deletePost**
     - ***Description***: Delete a Post
     - ***Method***: DELETE
-    - ***Require***: wallet_id, cid *(body)*
+    - ***Require***: wallet_id, cid, title *(body)*
     - ***Responses***:
         - *205* Post deleted
-        - *400* Bad info given, (need wallet id / need cid)
+        - *400* Bad info given, (need wallet id / need cid / need title)
         - *404* User does not exist
         - *404* Post does not exist
         - *503* Can't connect to database
@@ -62,10 +62,10 @@
 - **/updatePost**
     - ***Description***: Update a Post
     - ***Method***: POST
-    - ***Require***: wallet_id, oldCid, newCid *(body)*
+    - ***Require***: wallet_id, oldCid, newCid, title *(body)*
     - ***Responses***:
         - *200* Post updated
-        - *400* Bad info given, (need wallet id / need oldcid / need newCid)
+        - *400* Bad info given, (need wallet id / need oldcid / need newCid / need title)
         - *404* User does not exist
         - *404* Post does not exist
         - *503* Can't connect to database

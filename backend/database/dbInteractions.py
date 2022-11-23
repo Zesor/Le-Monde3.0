@@ -144,15 +144,19 @@ def newPost():
         cid = request_data['cid']
     except:
         return "Bad info given, need cid", 400
+    try:
+        title = request_data['title']
+    except:
+        return "Bad info given, need title", 400
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
     if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
         return "User does not exist", 404
-    if len(interaction.selectQuery("public.posts", "*", "wallet_id='"+walletId+"' AND cid='"+cid+"'")) != 0:
+    if len(interaction.selectQuery("public.posts", "*", "wallet_id='"+walletId+"' AND cid='"+cid+"' AND title='"+title+"'")) != 0:
         return "Post already exist on this user account", 400
     else:
-        interaction.insertQuery("public.posts", "wallet_id, cid", "'"+walletId+"', '"+cid+"'")
+        interaction.insertQuery("public.posts", "wallet_id, cid, title", "'"+walletId+"', '"+cid+"', '"+title+"'")
     interaction.disconnectDatabase()
     return "Post created", 201
 
@@ -167,15 +171,19 @@ def deletePost():
         cid = request_data['cid']
     except:
         return "Bad info given, need cid", 400
+    try:
+        title = request_data['title']
+    except:
+        return "Bad info given, need title", 400
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
     if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
         return "User does not exist", 404
-    if len(interaction.selectQuery("public.posts", "*", "wallet_id='"+walletId+"' AND cid='"+cid+"'")) == 0:
+    if len(interaction.selectQuery("public.posts", "*", "wallet_id='"+walletId+"' AND cid='"+cid+"' AND title='"+title+"'")) == 0:
         return "Post does not exist", 404
     else:
-        interaction.deleteQuery("public.posts", "wallet_id='"+walletId+"' AND cid='"+cid+"'")
+        interaction.deleteQuery("public.posts", "wallet_id='"+walletId+"' AND cid='"+cid+"' AND title='"+title+"'")
     interaction.disconnectDatabase()
     return "Post deleted", 205
 
@@ -194,6 +202,10 @@ def updatePost():
         newCid = request_data['newCid']
     except:
         return "Bad info given, need newCid", 400
+    try:
+        title = request_data['title']
+    except:
+        return "Bad info given, need title", 400
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
@@ -202,7 +214,7 @@ def updatePost():
     if len(interaction.selectQuery("public.posts",  "*", "wallet_id='"+walletId+"' AND cid='"+oldCid+"'")) == 0:
         return "Post does not exist", 404
     else:
-        interaction.updateQuery("public.posts", "cid='"+newCid+"'", "wallet_id='"+walletId+"' and cid='"+oldCid+"'")
+        interaction.updateQuery("public.posts", "cid='"+newCid+"', title='"+title+"'", "wallet_id='"+walletId+"' and cid='"+oldCid+"'")
     interaction.disconnectDatabase()
     return "Post updated", 200
 
@@ -221,7 +233,7 @@ def getPostByWalletId():
     interaction.disconnectDatabase()
     return json.dumps(resp), 200
 
-app.route('/db/getAllPost', methods=['GET'])
+@app.route('/db/getAllPost', methods=['GET'])
 def getAllPost():
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
