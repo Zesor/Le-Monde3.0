@@ -1,5 +1,6 @@
 import psycopg2
 import configparser
+import json
 from flask import Flask
 from flask import request
 
@@ -109,7 +110,7 @@ def login():
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
     if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
-        return "User does not exist", 400
+        return "User does not exist", 404
     else:
         interaction.updateQuery("public.user", "logged_in=true", "wallet_id='"+walletId+"'")
     interaction.disconnectDatabase()
@@ -126,7 +127,7 @@ def logout():
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
     if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
-        return "User does not exist", 400
+        return "User does not exist", 404
     else:
         interaction.updateQuery("public.user", "logged_in=false", "wallet_id='"+walletId+"'")
     interaction.disconnectDatabase()
@@ -146,6 +147,12 @@ def newPost():
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
+        return "User does not exist", 404
+    if len(interaction.selectQuery("public.posts", "*", "wallet_id='"+walletId+"' AND cid='"+cid+"'")) != 0:
+        return "Post already exist on this user account", 400
+    else:
+        interaction.insertQuery("public.posts", "wallet_id, cid", "'"+walletId+"', '"+cid+"'")
     interaction.disconnectDatabase()
     return "Post created", 201
 
@@ -163,6 +170,12 @@ def deletePost():
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
+        return "User does not exist", 404
+    if len(interaction.selectQuery("public.posts", "*", "wallet_id='"+walletId+"' AND cid='"+cid+"'")) == 0:
+        return "Post does not exist", 404
+    else:
+        interaction.deleteQuery("public.posts", "wallet_id='"+walletId+"' AND cid='"+cid+"'")
     interaction.disconnectDatabase()
     return "Post deleted", 205
 
@@ -174,36 +187,39 @@ def updatePost():
     except:
         return "Bad info given, need wallet id", 400
     try:
+        oldCid = request_data['oldCid']
+    except:
+        return "Bad info given, need oldCid", 400
+    try:
         newCid = request_data['newCid']
     except:
         return "Bad info given, need newCid", 400
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
+        return "User does not exist", 404
+    if len(interaction.selectQuery("public.posts",  "*", "wallet_id='"+walletId+"' AND cid='"+oldCid+"'")) == 0:
+        return "Post does not exist", 404
+    else:
+        interaction.updateQuery("public.posts", "cid='"+newCid+"'", "wallet_id='"+walletId+"' and cid='"+oldCid+"'")
     interaction.disconnectDatabase()
     return "Post updated", 200
 
 @app.route('/db/getPostByWalletId', methods=['GET'])
 def getPostByWalletId():
     walletId = request.args.get('wallet_id')
-    if walletId == None:
+    if walletId == None or len(walletId) == 0:
         return "Bad info given, need wallet_id", 400
     interaction = Interaction()
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
+        return "User does not exist", 404
+    else:
+        resp = interaction.selectQuery("public.posts", "wallet_id, cid", "wallet_id='"+walletId+"'")
     interaction.disconnectDatabase()
-    return "Ok", 200
-
-@app.route('/db/getPostByCID', methods=['GET'])
-def getPostByCID():
-    cid = request.args.get('cid')
-    if cid == None:
-        return "Bad info given, need cid", 400
-    interaction = Interaction()
-    if (interaction.connectDatabase() == False):
-        return "Can't connect to database", 503
-    interaction.disconnectDatabase()
-    return "Ok", 200
+    return json.dumps(resp), 200
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=PORT_SERVER)
