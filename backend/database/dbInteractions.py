@@ -221,5 +221,14 @@ def getPostByWalletId():
     interaction.disconnectDatabase()
     return json.dumps(resp), 200
 
+app.route('/db/getAllPost', methods=['GET'])
+def getAllPost():
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    resp = interaction.selectQuery("public.posts", "*")
+    interaction.disconnectDatabase()
+    return json.dumps(resp), 200
+    
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=PORT_SERVER)
