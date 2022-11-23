@@ -71,12 +71,19 @@
         - *503* Can't connect to database
 --------------------------
 - **/getPostByWalletId**
-    - ***Description***: Update a Post
+    - ***Description***: Get Post using Wallet Id
     - ***Method***: GET
     - ***Require***: wallet_id *(query)*
     - ***Responses***:
         - *200* *Post list*
         - *400* Bad info given, need wallet id
         - *404* User does not exist
+        - *503* Can't connect to database
+--------------------------
+- **/getAllPost**
+    - ***Description***: Get All Post
+    - ***Method***: GET
+    - ***Responses***:
+        - *200* *Post list*
         - *503* Can't connect to database
 --------------------------
