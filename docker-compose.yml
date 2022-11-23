@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=hackathon
+      - POSTGRES_PASSWORD=thisispassword
+      - POSTGRES_DB=postgres
+    ports:
+      - 5432:5432
+    build:
+      context: .
+      dockerfile: ./backend/database/setting/Dockerfile
+    networks:
+      - postgres-tier
+
+  db:
+    build: ./backend/database/
+    ports:
+      - "9020:9020"
+    networks:
+      - db-tier
+
+networks:
+  postgres-tier:
+    driver: bridge
+  db-tier:
+    driver: bridge
