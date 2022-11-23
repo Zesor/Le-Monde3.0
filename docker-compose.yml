@@ -22,8 +22,17 @@ services:
     networks:
       - db-tier
 
+  ipfs:
+    build: ./backend/services/ipfs/
+    ports:
+      - "3001:3001"
+    networks:
+      - ipfs-tier
+
 networks:
   postgres-tier:
     driver: bridge
   db-tier:
+    driver: bridge
+  ipfs-tier:
     driver: bridge
