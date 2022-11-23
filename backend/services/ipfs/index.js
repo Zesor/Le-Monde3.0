@@ -42,14 +42,28 @@ app.post('/ipfs/add', async (req, res) => {
     res.status(response.status).send('ok');
   })
   .catch(error => {
-    res.status(error.status).send(error);
+    res.status(error).send(error);
   });
 });
 
 app.get('/ipfs/get', async (req, res) => {
-  //! FETCH ALL POSTS FROM DATABASE AND CREATE A JSON TO SEND
-  const data = uint8ArrayConcat(await all(ipfs.cat(str)))
-  console.log('Added file contents:', uint8ArrayToString(data))
+  var data = {};
+  await axios({
+    method: 'GET',
+    url: 'http://127.0.0.1:9020/db/getAllPost',
+  })
+  .then(response => {
+    data = response.data;
+  })
+  .catch(error => {
+    res.status(error).send(error);
+  });
+  console.log(data);
+  for (let content in data) {
+    const byteArray = uint8ArrayConcat(await all(ipfs.cat(data[content][1])));
+    data[content][2] = uint8ArrayToString(byteArray);
+  }
+  console.log(data);
 });
 
 app.listen(process.env.PORT, () =>
