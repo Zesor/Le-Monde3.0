@@ -30,20 +30,20 @@ app.post('/ipfs/add', async (req, res) => {
   const str = cid.path.toString();
   console.log(str);
   //! ADD CID TO DATABASE
-  /*
   axios({
     method: 'POST',
-    url: http://127.0.0.1:5432/db/addCid,
+    url: 'http://127.0.0.1:9020/db/newPost',
     data: {
-      walletId: req.body.walletId,
+      wallet_id: req.body.wallet_id,
       cid: str,
     }
   })
   .then(response => {
-    res.status(200).send('ok');
+    res.status(response.status).send('ok');
   })
-  */
-  res.status(200).send(str);
+  .catch(error => {
+    res.status(error.status).send(error);
+  });
 });
 
 app.get('/ipfs/get', async (req, res) => {
