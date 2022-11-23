@@ -9,12 +9,21 @@ services:
       - POSTGRES_DB=postgres
     ports:
       - 5432:5432
-    volumes:
-      - ./data_container:/backend/database/data/
+    build:
+      context: .
+      dockerfile: ./backend/database/setting/Dockerfile
+    networks:
+      - postgres-tier
 
-  # db:
-  #   build: ./backend/database/
-  #   ports:
-  #     - "9020:9020"
-  #   networks:
-  #     - db-tier
+  db:
+    build: ./backend/database/
+    ports:
+      - "9020:9020"
+    networks:
+      - db-tier
+
+networks:
+  postgres-tier:
+    driver: bridge
+  db-tier:
+    driver: bridge

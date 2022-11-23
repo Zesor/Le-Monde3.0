@@ -1,13 +1,14 @@
 import psycopg2
 import configparser
 from flask import Flask
+from flask import request
 
 config = configparser.ConfigParser()
 config.read('config.ini')
 
 app = Flask(__name__)
 
-PORT_SERVER = config['db']['LOGIN_SERVER_PORT']
+PORT_SERVER = config['db']['SERVER_PORT']
 
 # ! ********* CLASS TO INTERACT WITH DATABASE *********  
 
@@ -31,9 +32,9 @@ class Interaction:
     def disconnectDatabase(self):
         self.cursor.close()
         self.conn.close()
-    
+
     def selectQuery(self, tableName, dataToSelect, condition = ""):
-        query = "SELECT " + dataToSelect + " FROM " + tableName + ";";
+        query = "SELECT " + dataToSelect + " FROM " + tableName;
         if len(condition) != 0:
             query += " WHERE " + condition + ";"
         else:
@@ -41,7 +42,7 @@ class Interaction:
         self.cursor.execute(query)
         res = self.cursor.fetchall()
         return res
-    
+
     def updateQuery(self, tableName, dataToUpdate, condition = ""):
         query = "UPDATE " + tableName + " SET " + dataToUpdate
         if len(condition) != 0:
@@ -57,6 +58,15 @@ class Interaction:
             query += " WHERE " + condition + ";"
         self.cursor.execute(query)
 
+    def insertQuery(self, tableName, dataToInsert, datas, condition=""):
+        query = "INSERT INTO " + tableName + " (" + dataToInsert + ") VALUES (" + datas + ")"
+        if len(condition) != 0:
+            query += " WHERE " + condition + ";"
+        else:
+            query += ";"
+        print(query)
+        self.cursor.execute(query)
+
 
 # ! ********* ROUTES *********  
 
@@ -64,26 +74,136 @@ class Interaction:
 def ping():
     return "Ok", 200
 
+@app.route('/db/pingdb', methods=['GET'])
+def pingdb():
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 400
+    interaction.disconnectDatabase()
+    return "Ok", 200
+
 @app.route('/db/register', methods=['POST'])
 def register():
-    return "Ok", 200
+    request_data = request.json
+    try:
+        walletId = request_data['wallet_id']
+    except:
+        return "Bad info given, need wallet id", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) != 0:
+        return "User already exist", 400
+    interaction.insertQuery("public.user", "wallet_id, logged_in", "'"+walletId+"', "+"true")
+    interaction.disconnectDatabase()
+    return "Created", 201
 
 @app.route('/db/login', methods=['POST'])
 def login():
+    request_data = request.json
+    try:
+        walletId = request_data['wallet_id']
+    except:
+        return "Bad info given, need wallet id", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
+        return "User does not exist", 400
+    else:
+        interaction.updateQuery("public.user", "logged_in=true", "wallet_id='"+walletId+"'")
+    interaction.disconnectDatabase()
+    return "Ok", 200
+
+@app.route('/db/logout', methods=['POST'])
+def logout():
+    request_data = request.json
+    try:
+        walletId = request_data['wallet_id']
+    except:
+        return "Bad info given, need wallet id", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
+        return "User does not exist", 400
+    else:
+        interaction.updateQuery("public.user", "logged_in=false", "wallet_id='"+walletId+"'")
+    interaction.disconnectDatabase()
     return "Ok", 200
 
 @app.route('/db/newPost', methods=['POST'])
 def newPost():
-    return "Ok", 200
+    request_data = request.json
+    try:
+        walletId = request_data['wallet_id']
+    except:
+        return "Bad info given, need wallet id", 400
+    try:
+        cid = request_data['cid']
+    except:
+        return "Bad info given, need cid", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    interaction.disconnectDatabase()
+    return "Post created", 201
 
 @app.route('/db/deletePost', methods=['DELETE'])
 def deletePost():
-    return "Ok", 200
+    request_data = request.json
+    try:
+        walletId = request_data['wallet_id']
+    except:
+        return "Bad info given, need wallet id", 400
+    try:
+        cid = request_data['cid']
+    except:
+        return "Bad info given, need cid", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    interaction.disconnectDatabase()
+    return "Post deleted", 205
 
 @app.route('/db/updatePost', methods=['POST'])
 def updatePost():
+    request_data = request.json
+    try:
+        walletId = request_data['wallet_id']
+    except:
+        return "Bad info given, need wallet id", 400
+    try:
+        newCid = request_data['newCid']
+    except:
+        return "Bad info given, need newCid", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    interaction.disconnectDatabase()
+    return "Post updated", 200
+
+@app.route('/db/getPostByWalletId', methods=['GET'])
+def getPostByWalletId():
+    walletId = request.args.get('wallet_id')
+    if walletId == None:
+        return "Bad info given, need wallet_id", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    interaction.disconnectDatabase()
     return "Ok", 200
 
+@app.route('/db/getPostByCID', methods=['GET'])
+def getPostByCID():
+    cid = request.args.get('cid')
+    if cid == None:
+        return "Bad info given, need cid", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    interaction.disconnectDatabase()
+    return "Ok", 200
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=PORT_SERVER)
