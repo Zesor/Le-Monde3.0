@@ -1,0 +1,89 @@
+# DATABASE SERVICE 
+
+## Routes
+
+--------------------------
+- **/ping**
+--------------------------
+- **/pingdb**
+--------------------------
+- **/register**
+    - ***Description***: Register a new user
+    - ***Method***: POST
+    - ***Require***: wallet_id *(body)*
+    - ***Responses***:
+        - *201* Created
+        - *400* Bad info given, need wallet id
+        - *400* User already exist
+        - *503* Can't connect to database
+--------------------------
+- **login**
+    - ***Description***: Login a user
+    - ***Method***: POST
+    - ***Require***: wallet_id *(body)*
+    - ***Responses***:
+        - *200* Ok
+        - *400* Bad info given, need wallet id
+        - *404* User does not exist
+        - *503* Can't connect to database
+--------------------------
+- **/logout**
+    - ***Description***: Logout a user
+    - ***Method***: POST
+    - ***Require***: wallet_id *(body)*
+    - ***Responses***:
+        - *200* Ok
+        - *400* Bad info given, need wallet id
+        - *404* User does not exist
+        - *503* Can't connect to database
+--------------------------
+- **/newPost**
+    - ***Description***: Create a new Post
+    - ***Method***: POST
+    - ***Require***: wallet_id, cid, title *(body)*
+    - ***Responses***:
+        - *201* Post created
+        - *400* Bad info given, (need wallet id / need cid / need title)
+        - *400* Post already exist on this user accound
+        - *404* User does not exist
+        - *503* Can't connect to database
+--------------------------
+- **/deletePost**
+    - ***Description***: Delete a Post
+    - ***Method***: DELETE
+    - ***Require***: wallet_id, cid, title *(body)*
+    - ***Responses***:
+        - *205* Post deleted
+        - *400* Bad info given, (need wallet id / need cid / need title)
+        - *404* User does not exist
+        - *404* Post does not exist
+        - *503* Can't connect to database
+--------------------------
+- **/updatePost**
+    - ***Description***: Update a Post
+    - ***Method***: POST
+    - ***Require***: wallet_id, oldCid, newCid, title *(body)*
+    - ***Responses***:
+        - *200* Post updated
+        - *400* Bad info given, (need wallet id / need oldcid / need newCid / need title)
+        - *404* User does not exist
+        - *404* Post does not exist
+        - *503* Can't connect to database
+--------------------------
+- **/getPostByWalletId**
+    - ***Description***: Get Post using Wallet Id
+    - ***Method***: GET
+    - ***Require***: wallet_id *(query)*
+    - ***Responses***:
+        - *200* *Post list*
+        - *400* Bad info given, need wallet id
+        - *404* User does not exist
+        - *503* Can't connect to database
+--------------------------
+- **/getAllPost**
+    - ***Description***: Get All Post
+    - ***Method***: GET
+    - ***Responses***:
+        - *200* *Post list*
+        - *503* Can't connect to database
+--------------------------
