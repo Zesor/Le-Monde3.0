@@ -1,6 +1,6 @@
 # :mortar_board: Starton/Binance/Ledger Hackaton
 ## :trophy: Goal of the Hackaton
-:heavy_check_mark: Make a decentralized platform so, journalists and media can avoid censorship.
+:heavy_check_mark: Make a decentralized Web App so, journalists and media can avoid censorship.
 
 ## French Persona
 
@@ -12,9 +12,7 @@ Our company, __STAIVM__, made up of IT students is very interested in the world 
 
 ## Contextualisation
 
->Our idea is bout the __media__. :envelope_with_arrow:
-
-Le vote suscite plusieurs problématiques à notre époque : __Falsification__ :x:, __Écologie__ :recycle:, __Abstention__ :put_litter_in_its_place:. Le but de notre projet est donc de __remédier__ à ces problèmes :
+>Our idea is about __media__ and __journalism__. :envelope_with_arrow:
 
 __L'écologie__ :recycle:<br />
 Nous sommes convaincus que la blockchain est la solution, car en votant de cette manière, cela permettrai dans un premier temps de gaspiller moins de papier utilisé pour inscrire le nom des candidats. Cette problématique écologique est d'autant plus importante à notre époque concernant ce qui se passe climatiquement.
@@ -35,20 +33,18 @@ C'est pour cela que nous avons décidé de créer une application mobile :iphone
 
 To create our Web App, we used React.Js.
 
-L'identifiaction a notre application se fait via France Connect, la solution proposée par l'État pour sécuriser et simplifier la connexion à plus de 1000 services en ligne (demande de passeport, carte nationale d'identité...).
-
-:warning: Pour etre claire, France connect nous permet __seulement__ de savoir si un utilisateur est bien francais et si il a déjà voté ou non. C'est les seuls données qui vont être stockées avec son nom son prénom et son numéro de sécurité sociale.
-
-Afin d'accomplir notre tâche, nous avons déployé un Smart contrat, qui donne un accès direct à une blockchain qui permettra aux citoyens de pouvoir voter pour un candidat. Le smart contract est un logiciel qui ne dispose en tant que tel d'aucune autorité juridique, ainsi, le lien avec le blockchain était une idée primordiale.
-
-Les plus grands défis technique que nous avons rencontrés sont le Smart contract, car il nous impose l'apprentissage d'une nouvelle technologique, qui est Solidity, ainsi que relier cela à Meta Mask.
-
-Pour pallier à cela, nous avons solicité l'aide de l'équipe de Starton, ainsi que diviser le travail entre les différents membres du groupe.
+A journalist or a media can publish an article. They have to connect themselves with MetaMask :fox_face:. <br />
 <br />
-<br />
-Pour préciser l'aspect __décentralisé__, en aucuns cas des données de l'utilsateur concernant la blockchain :chains:, son vote :envelope:, le smart contract :spiral_notepad: ou son wallet :mailbox_closed: vont être stockées, traitées ou analysées par notre back end ou france connect.
+__MetaMask__ is a software cryptocurrency wallet used to interact with the Ethereum blockchain for example. It allows users to access their wallet through a browser extension or mobile app, which can then be used to interact with decentralized applications.
+<br /><br /> * Articles can't be censured. :policeman: <br /> * Lectors have to pay to read an article. :euro: <br /> * Publishers are rewarded by our token. :chart: <br />
 
-Pour une meilleur compréhension, je vous invite grandement à visionner cette petite [vidéo explicative](https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view) :play_or_pause_button: que Valentin à réalisé, pour bien souligner que notre solution est entièrement __décentralisé__:unlock: et anonyme :bust_in_silhouette:.
+Our biggest issue was the buisness model. We first didn't knew how to approach it. Does the publisher have to pay to publish an article or no? We first tought of a subscription model, we finally choosed to make the lector pay for each article they read. 
+
+To resolve this issue, we asked the Starton team. They helped us by giving us advices.
+
+Our solution is fully __decentralized__, we do not collect users data. Neither the blockchain :chains:, the smart contract :spiral_notepad: or the wallet :mailbox_closed: are stored, treated or analized by our back end.
+
+For a better understanding, I invite you to visualise this [explanatory video](https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view) :play_or_pause_button: that we made, so you can see that our solution is entirely __decentralized__:unlock:.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -58,8 +54,10 @@ Pour une meilleur compréhension, je vous invite grandement à visionner cette p
 The user can consult the website whithout being logged in.
 
 ➡️ __Step 2__:<br />
+The user connect himselfwith his MetaMask account.
 
 ➡️ __Step 3__:<br />
+He can 
 
 ➡️ __Step 4__:<br />
 
@@ -85,7 +83,7 @@ The user can consult the website whithout being logged in.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Installation :arrow_down:
-### Go to [SETUP.md](https://github.com/Nokimalos/HackatonStarton/blob/main/SETUP.md)
+### Go to [SETUP.md](https://github.com/Zesor/Le-Monde3.0/blob/main/SETUP.md)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -95,7 +93,7 @@ Distributed under MIT license, see [``` LICENSE ```](https://github.com/Zesor/Le
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Contacts
+## Contact us
 
 Mohammed Chihi mohammed.chihi@epitech.eu
 
