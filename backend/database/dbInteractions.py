@@ -133,6 +133,24 @@ def logout():
     interaction.disconnectDatabase()
     return "Ok", 200
 
+@app.route('/db/getLogginState', methods=['GET'])
+def getLogginState():
+    walletId = request.args.get('wallet_id')
+    if walletId == None or len(walletId) == 0:
+        return "Bad info given, need wallet_id", 400
+    interaction = Interaction()
+    if (interaction.connectDatabase() == False):
+        return "Can't connect to database", 503
+    if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
+        return "User does not exist", 404
+    else:
+        resp = interaction.selectQuery("public.user", "logged_in", "wallet_id='"+walletId+"'")
+    interaction.disconnectDatabase()
+    if len(resp) == 0:
+        return "User does not exist", 404
+    
+    return str(resp[0][0]), 200
+
 @app.route('/db/newPost', methods=['POST'])
 def newPost():
     request_data = request.json
