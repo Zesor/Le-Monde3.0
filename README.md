@@ -54,6 +54,7 @@ For a better understanding, I invite you to visualise this [explanatory video](h
 The user can consult the website whithout being logged in.
 
 ➡️ __Step 2__:<br />
+The user connect 
 
 ➡️ __Step 3__:<br />
 
