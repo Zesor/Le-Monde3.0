@@ -12,14 +12,6 @@ function Navbar() {
   const { connect, disconnect, isActive, account } = useMetaMask();
   const [toggle, settoggle] = useState(false);
   
-  function test() {
-    if (isActive) {
-      console.log("true");
-    } else {
-      console.log("false");
-    }
-    console.log("test")
-  }
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
       <div className="flex">
@@ -60,7 +52,7 @@ function Navbar() {
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4' } text-white`}
+                className={`font-poppins font-normal cursor-pointer text-[16px] text-white ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4' }`}
               >
                 <a href={`#${nav.id}`}>
                   {nav.title}

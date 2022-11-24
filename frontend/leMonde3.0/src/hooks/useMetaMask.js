@@ -35,7 +35,8 @@ export const MetaMaskProvider = ({ children }) => {
         setShouldDisable(true)
         try {
             await activate(injected).then(() => {
-                setShouldDisable(false)    
+                setShouldDisable(false)
+                setIsActive(true)
             })
         } catch(error) {
             console.log('Error on connecting: ', error)
@@ -47,6 +48,7 @@ export const MetaMaskProvider = ({ children }) => {
         console.log('Disconnecting wallet from App...')
         try {
             await deactivate()
+            setIsActive(false)
         } catch(error) {
             console.log('Error on disconnnect: ', error)
         }
