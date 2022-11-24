@@ -3,11 +3,14 @@ import configparser
 import json
 from flask import Flask
 from flask import request
+from flask_cors import CORS
+
 
 config = configparser.ConfigParser()
 config.read('config.ini')
 
 app = Flask(__name__)
+CORS(app, resources={r"*": {"origins": "*"}})
 
 PORT_SERVER = config['db']['SERVER_PORT']
 

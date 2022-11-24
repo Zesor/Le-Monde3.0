@@ -7,6 +7,8 @@ import axios from 'axios';
 import { concat as uint8ArrayConcat } from 'uint8arrays/concat'
 import { fromString as uint8ArrayFromString } from 'uint8arrays/from-string'
 import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
+import cors from 'cors';
+
 
 dotenv.config();
 const app = express();
@@ -14,12 +16,7 @@ const ipfs = await IPFS.create({repo: 'ok' + Math.random()})
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
+app.use(cors())
 
 app.get('/ipfs/ping', (req, res) => {
   res.status(200).send('pong');

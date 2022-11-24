@@ -8,6 +8,7 @@ import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
+import axios from 'axios';
 
 const Post = () => {
 
@@ -17,7 +18,37 @@ const Post = () => {
     setValue(event.target.value);
   };
 
-  const [cookies, setCookie] = useCookies(['walletId']);
+  const [cookies, setCookie, removeCookie] = useCookies(['walletId']);
+
+
+  async function post(title, wallet_id, data)
+  {
+    await axios.post(
+        'http://127.0.0.1:3001/ipfs/add',
+        {
+            "wallet_id": wallet_id,
+            "data": data,
+            "title": title
+        }
+    ).then (function (resp) {
+        console.log(resp.status)
+        console.log(resp.data)
+    }).catch(function (err) {
+        console.log(err.response.status)
+        console.log(err.response.data)
+    })
+  }
+
+  async function test() {
+    console.log("lol");
+    var title = document.getElementById("bootstrap-input-title").value;
+    var price = document.getElementById("bootstrap-input-price").value;
+    var content = document.getElementById("outlined-multiline-static-content").value;
+    console.log(title);
+    console.log(price);
+    console.log(content);
+    await post(title, cookies.walletId.Id, content)
+  }
 
   const BootstrapInput = styled(InputBase)(({ theme }) => ({
     
@@ -69,14 +100,14 @@ const Post = () => {
         <div>
           <span className="text-gradient text-[22px]">Title </span>
           &nsbp;
-          <BootstrapInput placeholder="The emperor penguin" id="bootstrap-input" />
+          <BootstrapInput placeholder="The emperor penguin" id="bootstrap-input-title" />
         </div>
         <div>
           <span className="text-gradient text-[22px]">Price </span>
           &nsbp;
           <BootstrapInput
             placeholder="20$"
-            id="bootstrap-input"
+            id="bootstrap-input-price"
           />
         </div>
       </div>
@@ -86,14 +117,14 @@ const Post = () => {
       
         inputProps={{ style: { fontFamily: 'Arial', fontSize: 18}}}
         style={{ width:`100%`, flex: 1, margin: '5px 20px 0 0', backgroundColor: '#b8b8b8', borderRadius: 6, }}
-        id="outlined-multiline-static"
+        id="outlined-multiline-static-content"
         multiline
         placeholder="Penguins are aquatic, flightless birds. They lay eggs, have feathers and yet are powerful swimmers..."
         rows={9}
       />
       <br />
       <br />
-      <button type="button" className={`py-4 px-16 bg-blue-gradient font-poppins font-medium text-[18px] text-primary outline-none ${styles} rounded-[10px]`}>
+      <button onClick={test} type="button" className={`py-4 px-16 bg-blue-gradient font-poppins font-medium text-[18px] text-primary outline-none ${styles} rounded-[10px]`}>
         Post
       </button>
     </div>
