@@ -50,6 +50,10 @@
   background:  #ff9900;
 }
 
+.bg-red-gradient {
+  background:  #ff4000;
+}
+
 .bg-black-gradient {
   background: linear-gradient(
     144.39deg,

@@ -7,37 +7,35 @@ import '../index.css';
 
 import useMetaMask from '../hooks/useMetaMask';
 
-function test() {
-  console.log("test")
-}
 
 function Navbar() {
   const { connect, disconnect, isActive, account } = useMetaMask();
   const [toggle, settoggle] = useState(false);
-
+  
+  function test() {
+    if (isActive) {
+      console.log("true");
+    } else {
+      console.log("false");
+    }
+    console.log("test")
+  }
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <h1 className="text-white font-poppins text-[32px]" >
-        Le Monde
-      </h1>
-      <p>
-        ""
-      </p>
-      <p className="text-gradient font-poppins text-[32px]">
-        3.0
-      </p>
-
-      <div className={`flex-1 ${styles.flexCenter}`}>
-        <button onClick={ test } type="button" className={` py-1 px-12 bg-orange-gradient font-poppins font-medium text-[18px] text-primary outline-none rounded-[10px]`}>
-          <img
-            src={metamask}
-            alt="MetaMask"
-            className="w-[50px]"
-          /> 
-        </button>
+      <div className="flex">
+        <h1 className="text-white font-poppins text-[32px]" >
+          Le Monde
+        </h1>
+        <p>
+          ""
+        </p>
+        <p className="text-gradient font-poppins text-[32px]">
+          3.0
+        </p>
       </div>
 
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+
+      <ul className="list-none sm:flex hidden justify-end items-center flex">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
@@ -71,6 +69,15 @@ function Navbar() {
             ))}
           </ul>
         </div>
+      </div>
+      <div className={`flex-2 ${styles.flexStart} z-[11]`}>
+        <button onClick={ isActive ? disconnect : connect } type="button" className={` py-1 px-12 bg-orange-gradient mg:2 font-poppins font-medium text-[18px] z-[10] text-primary rounded-[10px] outline outline-offset-2 outline-4 ${ isActive ? "outline-green-500" : "outline-pink-500" }`}>
+          <img
+            src={metamask}
+            alt="MetaMask"
+            className="w-[50px]"
+          /> 
+        </button>
       </div>
     </nav>
   )

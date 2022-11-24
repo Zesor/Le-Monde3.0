@@ -14,7 +14,7 @@ export const navLinks = [
     title: "Newspaper",
   },
   {
-    id: "journalists",
+    id: "testimonials",
     title: "Journalists",
   },
 ];
@@ -84,7 +84,7 @@ export const stats = [
   {
     id: "stats-3",
     title: "Monthly Reader",
-    value: "$170M+",
+    value: "170M+",
   },
 ];
 

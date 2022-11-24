@@ -4,6 +4,9 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
+      outlineWidth: {
+        5: '5px',
+      },
       colors: {
         primary: "#00040f",
         secondary: "#00f6ff",

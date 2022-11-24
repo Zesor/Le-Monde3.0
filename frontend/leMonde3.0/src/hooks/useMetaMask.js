@@ -35,7 +35,7 @@ export const MetaMaskProvider = ({ children }) => {
         setShouldDisable(true)
         try {
             await activate(injected).then(() => {
-                setShouldDisable(false)
+                setShouldDisable(false)    
             })
         } catch(error) {
             console.log('Error on connecting: ', error)
