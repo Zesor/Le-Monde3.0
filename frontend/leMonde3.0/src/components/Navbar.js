@@ -6,6 +6,13 @@ import '../index.css';
 import { ethers } from 'ethers';
 import {useCookies} from 'react-cookie';
 import axios from 'axios';
+import {Button} from '@mui/material';
+import Transfer from './Transfer.js';
+
+function ExecuteTransfer(account) {
+  const transfer = new Transfer();
+  transfer.manage_transfer(account);
+}
 
 function Navbar() {
   const [toggle, settoggle] = useState(false);
@@ -68,7 +75,11 @@ function Navbar() {
   };
 
   function test() {
-    console.log(cookies.walletId);
+    console.log('test', cookies.walletId);
+  }
+
+  const handleTransfer = (account) => {
+    return ExecuteTransfer(account);
   }
 
   return (
@@ -132,6 +143,8 @@ function Navbar() {
           </ul>
         </div>
       </div>
+      {/* Ce type de button permet de pas exec le onClick directement (c'est ce qu'il fait avec les balises button de base) */}
+      <Button className='text-white' onClick={() => {handleTransfer(walletAdress);} }>Transfer</Button>
       <div className={`flex-2 ${styles.flexStart} z-[11]`}>
         <button onClick={ connectWallet } type="button" className={` py-1 px-12 bg-orange-gradient mg:2 font-poppins font-medium text-[18px] z-[10] text-primary rounded-[10px] outline outline-offset-2 outline-4  ${walletAdress !== "" ? "outline-green-500" : "outline-pink-500"} `}>
           <img
