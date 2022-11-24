@@ -3,7 +3,7 @@ import styles from './style.js'
 import './index.css';
 
 import { Navbar, Hero, Stats, Business, Testimonials,
-Clients, CTA, Footer } from './components';
+Clients, CTA, Footer, Post } from './components';
 
 const App = () => (
   <div className='bg-primary w-full overflow-hidden'>
@@ -26,6 +26,7 @@ const App = () => (
         <Testimonials />
         <Clients />
         <CTA />
+        <Post />
         <Footer />
       </div>
     </div>
