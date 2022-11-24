@@ -110,7 +110,8 @@ def login():
     if (interaction.connectDatabase() == False):
         return "Can't connect to database", 503
     if len(interaction.selectQuery("public.user", "*", "wallet_id='"+walletId+"'")) == 0:
-        return "User does not exist", 404
+        interaction.insertQuery("public.user", "wallet_id, logged_in", "'"+walletId+"', "+"true")
+        return "Created", 201
     else:
         interaction.updateQuery("public.user", "logged_in=true", "wallet_id='"+walletId+"'")
     interaction.disconnectDatabase()

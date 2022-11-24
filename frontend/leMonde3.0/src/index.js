@@ -1,23 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import './index.css';
-import Web3 from 'web3';
-import { Web3ReactProvider } from '@web3-react/core';
-import { MetaMaskProvider } from './hooks/useMetaMask';
+import App from './App';
+import { Web3ReactProvider } from '@web3-react/core'
+import Web3 from 'web3'
+import { CookiesProvider } from 'react-cookie';
 
-function getLibrary(provider, connector) {
-  return new Web3(provider);
+function getLibrary(provider) {
+  return new Web3(provider)
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-
-  <React.StrictMode>
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <MetaMaskProvider>
-        <App />
-      </MetaMaskProvider>
-    </Web3ReactProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Web3ReactProvider getLibrary={getLibrary}>
+  <CookiesProvider>
+    <App />
+  </CookiesProvider>
+  </Web3ReactProvider>
 );
