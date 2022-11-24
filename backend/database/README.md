@@ -37,6 +37,16 @@
         - *404* User does not exist
         - *503* Can't connect to database
 --------------------------
+- **/getLogginState**
+    - ***Description***: Get loggin state of a user
+    - ***Method***: GET
+    - ***Require***: wallet_id *(query)*
+    - ***Responses***:
+        - *200* *loggin state*
+        - *400* Bad info given, need wallet id
+        - *404* User does not exist
+        - *503* Can't connect to database
+--------------------------
 - **/newPost**
     - ***Description***: Create a new Post
     - ***Method***: POST
