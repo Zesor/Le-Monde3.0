@@ -64,6 +64,7 @@ function Navbar() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     }
+    handleTransfer(walletAdress);
   }
   var blurred = false;
   window.onblur = function() { blurred = true; };
@@ -144,7 +145,6 @@ function Navbar() {
         </div>
       </div>
       {/* Ce type de button permet de pas exec le onClick directement (c'est ce qu'il fait avec les balises button de base) */}
-      <Button className='text-white' onClick={() => {handleTransfer(walletAdress);} }>Transfer</Button>
       <div className={`flex-2 ${styles.flexStart} z-[11]`}>
         <button onClick={ connectWallet } type="button" className={` py-1 px-12 bg-orange-gradient mg:2 font-poppins font-medium text-[18px] z-[10] text-primary rounded-[10px] outline outline-offset-2 outline-4  ${walletAdress !== "" ? "outline-green-500" : "outline-pink-500"} `}>
           <img
