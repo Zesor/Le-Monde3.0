@@ -132,6 +132,19 @@
   background: var(--black-gradient);
 }
 
+.articles-card {
+  background: var(--black-gradient);
+}
+
+.articles-card:hover {
+  background: linear-gradient(
+    144.39deg,
+    #78f4ff -278.56%,
+    #33a3c8 -78.47%,
+    rgba(188, 165, 255, 0) 91.61%
+  );
+}
+
 .blue__gradient {
   background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
   filter: blur(123px);
