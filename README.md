@@ -12,20 +12,16 @@ Our company, __STAIVM__, made up of IT students is very interested in the world 
 
 ## Contextualisation
 
->Our idea is about __media__ and __journalism__. :envelope_with_arrow:
+>Our solution is based on the idea of avoiding censorship in the __media__ and __journalism__. 📰 📺 🎥
 
-__L'écologie__ :recycle:<br />
-Nous sommes convaincus que la blockchain est la solution, car en votant de cette manière, cela permettrai dans un premier temps de gaspiller moins de papier utilisé pour inscrire le nom des candidats. Cette problématique écologique est d'autant plus importante à notre époque concernant ce qui se passe climatiquement.
+First, we need to define what is __censorship__.
 
-__La falsification__ :x:<br />
-Dans un second temps, le vote décentralisé nous permet de garantir une élection non truqué, grâce au principe de fonctionnement de la blockchain. Cela garantirai une élection sûr et transparente notamment dans certains gouvernement.
+__Censorship__ 😶 occurs when individuals or groups try to prevent others from saying, printing, or depicting words and images. Censors <br />
+seek to limit freedom of thought and expression by restricting spoken words, printed matter or symbolic messages.
 
-__L'abstention__ :put_litter_in_its_place:<br />
-Enfin, le vote "classique", suscite un problème majeur concernant le taux d'abstention, desfois par conviction ou plus couramment par soucis de fainéantise. Imaginons que vous soyez occupées à une affaire le dimanche, ou bien qu'il fasse beau, que vous n'ayez donc pas le temps de vous déplacer au bureau de vote ou de faire une procuration. C'est typiquement concretement ce qu'il s'est passé pour certains d'entre nous.
+This is why we decided to create our platform, to allow journalists 🕵️‍♂️ to publish an article about whatever topic they want to talk about.
 
-Le vote décentralisé serait donc une solution respectant l'anonymat des votants, écologiquement correcte pour répondre aux problématiques que rencontre le vote traditionnel.
-
-C'est pour cela que nous avons décidé de créer une application mobile :iphone:, qui permet aux Français de voir le programme électoral de chaque candidat, de voter et de voir les résultats de l'élection.
+To do it, we used __IPFS__ (InterPlanetary File System), protocol. Hypermedia and file 📁 sharing peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting IPFS hosts.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -55,7 +51,7 @@ We would like to host our front end on IPFS, and UCAN for v3.
 
 Our solution is fully __decentralized__, we do not collect users data. Neither the blockchain :chains:, the smart contract :spiral_notepad: or the wallet :mailbox_closed: are stored, treated or analized by our back end.
 
-For a better understanding, I invite you to visualise this [explanatory video](https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view) :play_or_pause_button: that we made.
+For a better understanding, we invite you to visualise this [explanatory video](https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view) :play_or_pause_button: that we made.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
