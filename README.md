@@ -1,4 +1,4 @@
-# :mortar_board: Starton/Binance/Ledger Hackaton
+# :mortar_board: Starton  Hackaton
 ## :trophy: Goal of the Hackaton
 :heavy_check_mark:  Develop a decentralized platform to allow journalists and the media to share information without being censored.
 
