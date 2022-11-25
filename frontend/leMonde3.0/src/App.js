@@ -3,7 +3,7 @@ import styles from './style.js'
 import './index.css';
 
 import { Navbar, Hero, Stats, Business, Testimonials,
-Clients, CTA, Footer, Post } from './components';
+Clients, CTA, Footer, Post, Articles } from './components';
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
       <div className={`${styles.boxWidth}`}>
         <Stats />
         <Business />
+        <Articles />
         <Post />
         <Testimonials />
         <Clients />
