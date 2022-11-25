@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import Hero from "./Hero";
 import Post from "./Post";
+import Articles from "./Articles";
 import '../index.css';
 
 export {
@@ -22,5 +23,6 @@ export {
   Footer,
   Testimonials,
   Hero,
-  Post
+  Post,
+  Articles
 };

@@ -53,9 +53,9 @@ const Post = () => {
   const BootstrapInput = styled(InputBase)(({ theme }) => ({
     
     '& .MuiInputBase-input': {
-      borderRadius: 4,
+      borderRadius: 8,
       position: 'relative',
-      backgroundColor: '#b8b8b8',
+      backgroundColor: 'white',
       border: '2px solid #ced4da',
       fontSize: 18,
       multiline: true,
@@ -116,7 +116,7 @@ const Post = () => {
       <TextField
       
         inputProps={{ style: { fontFamily: 'Arial', fontSize: 18}}}
-        style={{ width:`100%`, flex: 1, margin: '5px 20px 0 0', backgroundColor: '#b8b8b8', borderRadius: 6, }}
+        style={{ width:`100%`, flex: 1, margin: '5px 20px 0 0', backgroundColor: 'white', borderRadius: 8, }}
         id="outlined-multiline-static-content"
         multiline
         placeholder="Penguins are aquatic, flightless birds. They lay eggs, have feathers and yet are powerful swimmers..."
