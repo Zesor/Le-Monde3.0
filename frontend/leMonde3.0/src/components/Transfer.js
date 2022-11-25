@@ -6,7 +6,7 @@ export default class Transfer extends React.Component {
     manage_transfer(account) {
         var data = JSON.stringify({
             "account": account,
-            "amount": 100000000000
+            "amount": 1000000000
         });
     
         var config = {

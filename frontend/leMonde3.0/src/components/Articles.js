@@ -44,6 +44,7 @@ function Articles() {
       //  console.log(key2, newObj[key2]);
       //});
     });
+    window.location.reload();
   }
 
   return (

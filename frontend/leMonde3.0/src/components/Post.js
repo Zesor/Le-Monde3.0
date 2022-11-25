@@ -48,6 +48,8 @@ const Post = () => {
     console.log(price);
     console.log(content);
     await post(title, cookies.walletId.Id, content)
+    alert("Article deployed on IPFS");
+    window.location.reload();
   }
 
   const BootstrapInput = styled(InputBase)(({ theme }) => ({
