@@ -19,11 +19,18 @@ First, we need to define what is __censorship__.
 __Censorship__ 😶 occurs when individuals or groups try to prevent others from saying, printing, or depicting words and images. Censors <br />
 seek to limit freedom of thought and expression by restricting spoken words, printed matter or symbolic messages.
 
-This is why we decided to create our platform, to allow journalists 🕵️‍♂️ to publish an article about whatever topic they want to talk about.
+Having access to information is important, but it's important too to watch out who is in control of the media that we take information from.
+<br />For exemple, in France 🇫🇷, 9 billionaires own 90 % of the media. Some of those media have a political orientation.
+
+But most of the time, consors are governements that are not that much democratic. The first exemple that we can think of is China 🇨🇳, who censors internet, journalists, media etc..
+
+Some journalists disapear after exposing a situation in the country, for exemple, there is a Chinese Citizen Journalist Who Documented Covid-19 in Wuhan Resurfaced after 600 days. [(Source)](https://www.wsj.com/articles/chinese-citizen-journalist-who-documented-covid-19-in-wuhan-resurfaces-after-600-days-11633077956)
+
+This is why we decided to create our platform, to allow journalists 🕵️‍♂️ to publish an article about whatever topic they want to talk about, without being censored, without getting to jail or even worse. With our platform, they are safe and free.
 
 To do it, we used __IPFS__ (InterPlanetary File System), protocol. Hypermedia and file 📁 sharing peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting IPFS hosts.
 
-IPFS is __THE__ technologie to resolve our censorship problem because it's..... ⚠️
+IPFS is __THE__ technology to resolve our censorship problem because it's..... ⚠️
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
