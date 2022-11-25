@@ -61,7 +61,7 @@ We would like to host our front end on IPFS, and use UCAN (UCAN stands for User 
 
 Our solution is fully __decentralized__, we do not collect users data. Neither the blockchain :chains:, the smart contract :spiral_notepad: or the wallet :mailbox_closed: are stored, treated or analized by our back end.
 
-For a better understanding, we invite you to visualise this [explanatory video](https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view) :play_or_pause_button: that we made.
+[https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view](https://drive.google.com/file/d/16kD0Np2sjl-yfXgnxoym0dSw2eokWVqm/view)) :play_or_pause_button: that we made.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -79,8 +79,6 @@ The user can buy an article to read it.
 ➡️ __Step 4__:<br />
 He can publish an article, and fix the amount the lector has to pay to access it.
 For example, it can be 0$ or 200$ worth of STVM.
-
-<br />There is a [DEMO](https://drive.google.com/file/d/17a8oHl-GusAtjVyHCH2KupmGyg_hsRli/view) :play_or_pause_button:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
