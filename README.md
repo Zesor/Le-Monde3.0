@@ -36,35 +36,43 @@ To create our Web App, we used React.Js.
 A journalist or a media can publish an article. They have to connect themselves with MetaMask :fox_face:. <br />
 <br />
 __MetaMask__ is a software cryptocurrency wallet used to interact with the Ethereum blockchain for example. It allows users to access their wallet through a browser extension or mobile app, which can then be used to interact with decentralized applications.
-<br /><br /> * Articles can't be censured. :policeman: <br /> * Lectors have to pay to read an article. :euro: <br /> * Publishers are rewarded by our token. :chart: <br />
+<br /><br /> 
+* Articles can't be censured. :policeman: <br /> 
+* Lectors have to pay to read an article. :euro: <br /> 
+* Publishers are rewarded by our token. :chart: <br />
 
-Our biggest issue was the buisness model. We first didn't knew how to approach it. Does the publisher have to pay to publish an article or no? We first tought of a subscription model, we finally choosed to make the lector pay for each article they read. 
+Our biggest issue was the __buisness model__. We first didn't knew how to approach it. Does the publisher have to pay to publish an article or no? We first tought of a subscription model, does the lector pay for each article they read?
 
 To resolve this issue, we asked the Starton team. They helped us by giving us advices.
 
+We finally choosed to make the lector pay for each article they read, the publisher choose the amount that the lector has to pay, and he is rewarded from it with our token : STVM, deployed with the starton API. Our platform takes a __commission__ on this. :moneybag:
+
+If the lector has a favorite journalists or media, he can subscribe to them, they fix the amount to subscribe to their publication/articles.
+
+:arrow_up: All of what we seen previoulsy is the v1 of our web App. For v2 we would like to put decentralized id's, distributed database. We would like also to add an important feature: possibility to buy our token via sepa bank transfer. 
+
+We would like to host our front end on IPFS, and UCAN for v3.
+
 Our solution is fully __decentralized__, we do not collect users data. Neither the blockchain :chains:, the smart contract :spiral_notepad: or the wallet :mailbox_closed: are stored, treated or analized by our back end.
 
-For a better understanding, I invite you to visualise this [explanatory video](https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view) :play_or_pause_button: that we made, so you can see that our solution is entirely __decentralized__:unlock:.
+For a better understanding, I invite you to visualise this [explanatory video](https://drive.google.com/file/d/1fkmYWmISnj8Vsye0-JDEE5oHbVOu1w8p/view) :play_or_pause_button: that we made.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Steps
 
 ➡️ __Step 1__:<br />
-The user can consult the website whithout being logged in.
+The user can consult the website and read the free articles whithout being logged in.
 
 ➡️ __Step 2__:<br />
-The user connect himselfwith his MetaMask account.
+The user connect himself with his MetaMask account.
 
 ➡️ __Step 3__:<br />
-He can 
+The user can buy an article to read it.
 
 ➡️ __Step 4__:<br />
-
-➡️ __Step 5__:<br />
-
-➡️ __Step 6__:<br />
-
+He can publish an article, and fix the amount the lector has to pay to access it. 
+For example, it can be 0$ or 200$ worth of STVM.
 
 <br />There is a [DEMO](https://drive.google.com/file/d/17a8oHl-GusAtjVyHCH2KupmGyg_hsRli/view) :play_or_pause_button:
 
@@ -95,13 +103,13 @@ Distributed under MIT license, see [``` LICENSE ```](https://github.com/Zesor/Le
 
 ## Contact us
 
-Mohammed Chihi mohammed.chihi@epitech.eu
-
 Valentin Fouillet valentin.fouillet@epitech.eu
 
 Illyas Chihi illyas.chihi@epitech.eu
 
 Antoine Gavira-Bottari antoine.gavira-bottari@epitech.eu
+
+Mohammed Chihi mohammed.chihi@epitech.eu
 
 Thomas Willson thomas.willson@epitech.eu
 
