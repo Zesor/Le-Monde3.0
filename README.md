@@ -23,6 +23,8 @@ This is why we decided to create our platform, to allow journalists 🕵️‍�
 
 To do it, we used __IPFS__ (InterPlanetary File System), protocol. Hypermedia and file 📁 sharing peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting IPFS hosts.
 
+IPFS is __THE__ technologie to resolve our censorship problem because it's..... ⚠️
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Workflow
