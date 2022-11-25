@@ -61,7 +61,7 @@ We would like to host our front end on IPFS, and use UCAN (UCAN stands for User 
 
 Our solution is fully __decentralized__, we do not collect users data. Neither the blockchain :chains:, the smart contract :spiral_notepad: or the wallet :mailbox_closed: are stored, treated or analized by our back end.
 
-For a better understanding, we invite you to look at this [Explanatory video](https://drive.google.com/file/d/16kD0Np2sjl-yfXgnxoym0dSw2eokWVqm/view) :play_or_pause_button: that we made.
+For a better understanding, we invite you to look at this [Explanatory video](https://drive.google.com/file/d/1pR_4Qhz-oA3SspI5Xlp7id6Qjt0ZgRw-/view) :play_or_pause_button: that we made.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
