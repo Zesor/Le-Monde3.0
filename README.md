@@ -1,6 +1,6 @@
 # :mortar_board: Starton  Hackaton
 ## :trophy: Goal of the Hackaton
-:heavy_check_mark:  Develop a decentralized platform to allow journalists and the media to share information without being censored.
+:heavy_check_mark:  Develop a decentralized platform to allow journalists and medias to share information without being censored.
 
 ## French Persona
 
