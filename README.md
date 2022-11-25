@@ -1,12 +1,12 @@
 # :mortar_board: Starton/Binance/Ledger Hackaton
 ## :trophy: Goal of the Hackaton
-:heavy_check_mark: Make a decentralized Web App so, journalists and media can avoid censorship.
+:heavy_check_mark:  Develop a decentralized platform to allow journalists and the media to share information without being censored.
 
 ## French Persona
 
 Today, the __blockchain__ is used in different areas : finance, health, art..., but it can be complicated to apprehend it and to use it.
 
-Our company, __STAIVM__, made up of IT students is very interested in the world of blockchain and web3, who offers new possibilities which go far beyond our imagination. We decided to make up a project that accelerate the transition from web2 to web3, for a decentralized future.
+Our company, __STAIVM__, made up of IT students is very interested to render the web more decentralized, we only build project that can help the society, (think about Vot'Chain last hackathon 😉) who offers new possibilities which go far beyond our imagination.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -30,7 +30,8 @@ This is why we decided to create our platform, to allow journalists 🕵️‍�
 
 To do it, we used __IPFS__ (InterPlanetary File System),  protocol. Hypermedia and file 📁 sharing peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting IPFS hosts.
 
-IPFS is __THE__ technology to resolve our censorship problem because it's..... ⚠️
+The Blockchain is not the only way to decentralize the web, many protocols have emerged to allow peer-to-peer exchanges without going through a trusted third party. We have chosen to use the Interplanetary File System (IPFS) to allow journalists and media to be able to publish pseudonymous or anonymous end-to-end encrypted articles on the IPFS network.
+Once the content is on IPFS it is really very difficult to be able to censor it because every content is define with the content and not the location, the best known example is Wikipedia in Turkey which was censored by the government and then put on the network. No one to date has been able to block access to Wikipedia on IPFS in Turkey.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -50,13 +51,13 @@ Our biggest issue was the __buisness model__. We first didn't knew how to approa
 
 To resolve this issue, we asked the Starton team. They helped us by giving us advices.
 
-We finally choosed to make the lector pay for each article they read, the publisher choose the amount that the lector has to pay, and he is rewarded from it with our token : STVM, deployed with the starton API. Our platform takes a __commission__ on this. :moneybag:
+We finally choosed to make the lector pay for each article they read, the publisher choose the amount that the lector has to pay, and he is rewarded from it with our token in BNB Chain ecosystem : STVM, deployed with the starton API. Our platform takes a __commission__ on this. :moneybag:
 
 If the lector has a favorite journalists or media, he can subscribe to them, they fix the amount to subscribe to their publication/articles.
 
-:arrow_up: All of what we seen previoulsy is the v1 of our web App. For v2 we would like to put decentralized id's, distributed database. We would like also to add an important feature: possibility to buy our token via sepa bank transfer. 
+:arrow_up: All of what we seen previoulsy is the v1 of our web App. For v2 we would like to use DID's (decentralized identity), distributed database (orbit-db). We would like also to add an important feature: possibility to buy our token via sepa bank transfer and adapt our buisness model.
 
-We would like to host our front end on IPFS, and UCAN for v3.
+We would like to host our front end on IPFS, and use UCAN (UCAN stands for User Controlled Authorization Networks, and it's fundamentally about changing the relationship between users and service providers in a way that empowers the end-user.)for v3.
 
 Our solution is fully __decentralized__, we do not collect users data. Neither the blockchain :chains:, the smart contract :spiral_notepad: or the wallet :mailbox_closed: are stored, treated or analized by our back end.
 
@@ -76,7 +77,7 @@ The user connect himself with his MetaMask account.
 The user can buy an article to read it.
 
 ➡️ __Step 4__:<br />
-He can publish an article, and fix the amount the lector has to pay to access it. 
+He can publish an article, and fix the amount the lector has to pay to access it.
 For example, it can be 0$ or 200$ worth of STVM.
 
 <br />There is a [DEMO](https://drive.google.com/file/d/17a8oHl-GusAtjVyHCH2KupmGyg_hsRli/view) :play_or_pause_button:
@@ -118,4 +119,4 @@ Mohammed Chihi mohammed.chihi@epitech.eu
 
 Thomas Willson thomas.willson@epitech.eu
 
-Silya.Nait silya.nait@epitech.eu
+Silya Nait silya.nait@epitech.eu
